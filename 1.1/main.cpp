@@ -25,10 +25,18 @@ bool isUnique(string input){
 int main()
 {
 
-    string input = "JONN";
+    string input;
 
-    cout << isUnique(input);
+    cout << "Enter a string: " << endl << endl;
 
+    cin >> input;
+
+    if(isUnique(input)==0){
+        cout << "String contains duplicate characters. " << endl << endl;
+    }
+    else{
+        cout << "All characters in the string appear exactly once. " << endl << endl;
+    }
 
     return 0;
 }
