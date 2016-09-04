@@ -12,10 +12,18 @@ bool isUnique(string input){
 
     for(int i = 0; i < input.length(); i++){
 
-        if(arr[input[i]-65]!=0){
-            return false;
+        if(isupper(input[i])==false){
+             if(arr[input[i]-97]!=0){
+                return false;
+            }
+            arr[input[i]-97] = 1;
         }
-        arr[input[i]-65] = 1;
+        else{
+            if(arr[input[i]-65]!=0){
+                return false;
+            }
+            arr[input[i]-65] = 1;
+        }
     }
 
     return true;
