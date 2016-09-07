@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1473214436 source:c:\users\jon\desktop\ctci\1.5\main.cpp
+	<iostream>
+	<string>
+	<cmath>
+

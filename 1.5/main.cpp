@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 using namespace std;
 
 
@@ -13,7 +14,7 @@ bool oneAway(string input1, string input2){
         instances2[a] = 0;
     }
 
-    for(int index = 0; index < 26; index++){
+    for(int index = 0; index < input1.length(); index++){
 
         if(isupper(input1[index])==true){
             instances1[input1[index]-65]++;
@@ -21,14 +22,33 @@ bool oneAway(string input1, string input2){
         else{
             instances1[input1[index]-97]++;
         }
-        if(isupper(input2[index])==true){
-            instances2[input2[index]-65]++;
+
+    }
+
+    for(int c = 0; c < input2.length(); c++){
+
+        if(isupper(input2[c])==true){
+            instances2[input2[c]-65]++;
         }
         else{
-            instances2[input2[index]-97]++;
+            instances2[input2[c]-97]++;
         }
 
     }
+
+    int differences = 0;
+
+    for(int b = 0; b < 26; b++){
+            cout << "instances1[" << b << "]: " << instances1[b] << "        ";
+            cout << "instances2[" << b << "]: " << instances2[b] << endl;
+        if(abs((instances1[b]-instances2[b]))>0){
+            differences++;
+                if(differences>1){
+                    return false;
+                }
+        }
+    }
+    return true;
 
 
 }
@@ -50,7 +70,12 @@ int main()
     string eight = "eight";
 
 
-
+    if(oneAway(one, two) == true){
+        cout << "True" << endl;
+    }
+    else{
+        cout << "False" << endl;
+    }
 
 
 
